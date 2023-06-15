@@ -21,7 +21,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Übungen Bearbeiten</a>
+            <router-link class="nav-link" to="/api/edit">Übungen Bearbeiten</router-link>
           </li>
         </ul>
       </div>
