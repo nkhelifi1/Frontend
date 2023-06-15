@@ -15,23 +15,21 @@ export default{
   name: 'Exercises',
   data () {
     return {
-      exercises: [
-        {
-          id: 1,
-          name: 'Row',
-          muscleGroup: 'back',
-          weight: 55.0,
-          category: 'pull'
-        },
-        {
-          id: 2,
-          name: 'Bench press',
-          muscleGroup: 'chest',
-          weight: 45.0,
-          category: 'push'
-        }
-      ]
+      exercises: []
     }
+  },
+  mounted() {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    fetch('http://localhost:8080/api/exercises', requestOptions)
+        .then(response => response.json())
+        .then(result => result.forEach(exercise => {
+          this.exercises.push(exercise)
+        }))
+        .catch(error => console.log('error', error));
   }
 }
+
 </script>
