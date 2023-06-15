@@ -1,22 +1,3 @@
-<!--
-<template>
-    <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png">
-        <HelloWorld msg="Hello World"/>
-    </div>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue';
-
-export default {
-    name: 'App',
-    components: {
-        HelloWorld
-    }
-}
-</script>
--->
 <template>
   <navbar></navbar>
   <router-view/>
@@ -40,16 +21,4 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

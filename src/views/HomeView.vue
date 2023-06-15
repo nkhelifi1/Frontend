@@ -1,17 +1,18 @@
 <template>
-  <div class="home">
-<!--    <DynamicForm title="Let's talk to the backend!"/>-->
-  </div>
+<div class="home">
+<img alt="Vue logo" src="../assets/logo.png">
+<HelloWorld msg="Hello World!"/>
+</div>
 </template>
 
 <script>
 // @ is an alias to /src
-//import DynamicForm from '@/components/DynamicBackend.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'HomeView'//,
-  //components: {
-    //DynamicForm
-  //}
+  name: 'HomeView',
+  components: {
+    HelloWorld
+  }
 }
 </script>
