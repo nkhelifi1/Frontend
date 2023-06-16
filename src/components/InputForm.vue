@@ -19,8 +19,8 @@
       <label class="visually-hidden" for="specificSizeSelectKategorie">Kategorie</label>
       <select v-model="category" class="form-select" id="specificSizeSelectKategorie">
         <option selected disabled value="">Kategorie</option>
-        <option value="1">Push</option>
-        <option value="2">Pull</option>
+        <option>Push</option>
+        <option>Pull</option>
       </select>
     </div>
     <div class="col-auto">
