@@ -24,7 +24,7 @@
       </select>
     </div>
     <div class="col-auto">
-      <button type="submit" class="btn btn-primary" @click="save()">Hinzufügen</button>
+      <button type="button" class="btn btn-primary" @click="save()">Primary</button>
     </div>
   </form>
 </template>
@@ -53,28 +53,29 @@ export default {
           }))
           .catch(error => console.log('error', error));
     },
-    save () {
-      const endpoint = 'http://localhost:8080/api/exercise'
+    async save () {
       const data = {
         name: this.namen,
         muscleGroup: this.muscleGroup,
-        weight: 0,
         category: this.category,
+        weight: 0,
       }
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-          // Authorization: 'Bearer ' + this.accessToken
-        },
-        body: JSON.stringify(data)
+      try {
+        const response = await fetch('http://localhost:8080/api/exercises', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        if (response.ok) {
+          console.log('Neue Übung wurde hinzugefügt!');
+        } else {
+          console.error('Fehler beim Hinzufügen der Übung!');
+        }
+      } catch (error) {
+        console.error('Fehler:', error);
       }
-      fetch(endpoint, requestOptions)
-          .then(response => response.json())
-          .then(data => {
-            console.log('Success:', data)
-          })
-          .catch(error => console.log('error', error))
     }
   },
   updated() {
