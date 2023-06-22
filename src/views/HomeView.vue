@@ -1,18 +1,30 @@
 <template>
-<div class="home">
-<img alt="Vue logo" src="../assets/logo.png">
-<HelloWorld msg="Hello World!"/>
-</div>
+    <div class="home">
+        <img alt="Curl Logo" class="logo" src="../assets/LogoCurl.svg">
+        <ExerciseProWelcome />
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import ExerciseProWelcome from '@/components/ExerciseProWelcome.vue'
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
+    name: 'HomeView',
+    components: {
+        ExerciseProWelcome
+    }
 }
 </script>
+
+<style>
+
+body
+{
+    background: radial-gradient(circle at 50% 50%, #5de0e6, #004aad);
+}
+
+.logo {
+    width: 30%;
+
+}
+</style>
