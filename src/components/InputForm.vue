@@ -1,8 +1,8 @@
 <template>
   <form class="row gx-3 gy-2 align-items-center">
       <div class="col-sm-2">
-          <label class="visually-hidden" for="specificSizeSelectGroup">Name</label>
-          <select class="form-select" id="specificSizeSelectGroup" v-model="namen">
+          <label class="visually-hidden" for="specificSizeSelectNamen">Name</label>
+          <select class="form-select" id="specificSizeSelectNamen" v-model="namen">
               <option selected disabled value="">Name der Übung</option>
               <option>Arnoldpress</option>
               <option>Bench Press</option>
@@ -86,7 +86,7 @@ export default {
             namen: '',
             muscleGroup: '',
             category: '',
-            weight: null
+            weight: ''
         }
     },
     methods: {
