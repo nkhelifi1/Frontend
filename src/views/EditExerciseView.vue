@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <h2 class="title">Übungen bearbeiten</h2>
+        <h2 class="title">Übungen hinzufügen</h2>
         <InputForm/>
     </div>
 
