@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/">curl.</router-link>
+      <router-link class="navbar-brand text-blue" to="/">curl.</router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,5 +37,8 @@ export default {
 </script>
 
 <style scoped>
+.text-blue {
+    color: #004aad;
+}
 
 </style>
