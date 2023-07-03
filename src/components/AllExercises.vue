@@ -1,53 +1,73 @@
 <template>
     <div>
         <h2 class="title">Meine Übungen</h2>
-    <div class="card">
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Muskel</th>
-                <th scope="col">Kategorie</th>
-                <th scope="col">Gewicht</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="exercise in exercises" :key="exercise.id">
-                <td>{{ exercise.name }}</td>
-                <td>{{ exercise.muscleGroup }}</td>
-                <td>{{ exercise.category }}</td>
-                <td>{{ exercise.weight }}</td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="card">
+            <table class="table table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Muskel</th>
+                    <th scope="col">Kategorie</th>
+                    <th scope="col">Gewicht</th>
+                    <th scope="col">Übungen löschen</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="exercise in exercises" :key="exercise.id">
+                    <td>{{ exercise.name }}</td>
+                    <td>{{ exercise.muscleGroup }}</td>
+                    <td>{{ exercise.category }}</td>
+                    <td>{{ exercise.weight }}</td>
+                    <td>
+                        <button @click="deleteExercise(exercise.id)" class="btn btn-info text-white btn-sm">Löschen</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    </div>
-
 </template>
 
 <script>
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
-    name: `Exercises`,
+    name: "Exercises",
     data() {
         return {
-            exercises: []
-        }
+            exercises: [],
+        };
     },
     mounted() {
-        const requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-        };
-        fetch('http://localhost:8080/api/exercises', requestOptions)
-            .then(response => response.json())
-            .then(result => {
-                this.exercises = result;
-            })
-            .catch(error => console.log('error', error));
+        this.fetchExercises();
+    },
+    methods: {
+        fetchExercises() {
+            const requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+            fetch("http://localhost:8080/api/exercises", requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    this.exercises = result;
+                })
+                .catch(error => console.log("error", error));
+        },
+        deleteExercise(exerciseId) {
+            const requestOptions = {
+                method: "DELETE"
+            };
+            fetch(`http://localhost:8080/api/exercises/${exerciseId}`, requestOptions)
+                .then(() => {
+                    //entfernt die Übung aus der Zeile
+                    this.exercises = this.exercises.filter(e => e.id !== exerciseId);
+                })
+                .catch(error => console.log("error", error));
+        }
     }
-}
+};
 </script>
+
 <style>
 .card {
     margin-top: 0.5cm;
@@ -62,10 +82,23 @@ export default {
     color: white;
 }
 
-body
-{
+body {
     background: radial-gradient(circle at 50% 50%, #5de0e6, #004aad);
-
 }
 
+th {
+    padding-left: 0.2cm;
+    padding-right: 0.2cm;
+}
+
+td {
+    padding-left: 0.2cm;
+    padding-right: 0.2cm;
+}
+
+.table-condensed th,
+.table-condensed td {
+    padding: 0.3cm;
+    font-size: 1em;
+}
 </style>
