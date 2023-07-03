@@ -74,23 +74,27 @@
       <div class="col-auto">
           <button type="button" class="btn btn-info text-white" @click="save()">Hinzufügen</button>
       </div>
+      <div v-if="successMessage" class="col-auto">
+          <span class="text-success text-white">{{ successMessage }}</span>
+      </div>
   </form>
 </template>
 
 <script>
 export default {
     name: 'InputForm',
-    data(){
+    data() {
         return {
             exercises: [],
             namen: '',
             muscleGroup: '',
             category: '',
-            weight: ''
+            weight: '',
+            successMessage: '',
         }
     },
     methods: {
-        load(){
+        load() {
             const requestOptions = {
                 method: 'GET',
                 redirect: 'follow'
@@ -102,13 +106,13 @@ export default {
                 }))
                 .catch(error => console.log('error', error));
         },
-        async save () {
+        async save() {
             const data = {
                 name: this.namen,
                 muscleGroup: this.muscleGroup,
                 category: this.category,
                 weight: this.weight,
-            }
+            };
             try {
                 const response = await fetch('http://localhost:8080/api/exercises', {
                     method: 'POST',
@@ -118,19 +122,26 @@ export default {
                     body: JSON.stringify(data),
                 });
                 if (response.ok) {
-                    console.log('Neue Übung wurde hinzugefügt!');
+                    this.successMessage = 'Neue Übung wurde hinzugefügt!';
+                    this.resetFields();
                 } else {
                     console.error('Fehler beim Hinzufügen der Übung!');
                 }
             } catch (error) {
                 console.error('Fehler:', error);
             }
-        }
+        },
+        resetFields() {
+            this.namen = '';
+            this.muscleGroup = '';
+            this.category = '';
+            this.weight = '';
+        },
     },
     updated() {
-        console.log("UPDATED!")
-    }
-}
+        console.log('UPDATED!');
+    },
+};
 </script>
 
 <style>
