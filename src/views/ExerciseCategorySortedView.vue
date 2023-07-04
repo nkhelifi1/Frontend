@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <AllExercises/>
+    <AllExercisesByCategory/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import AllExercises from '@/components/AllExercises.vue'
+import AllExercisesByCategory from '@/components/AllExercisesByCategory.vue'
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Exercises',
+  name: 'ExercisesByCategory',
   components: {
-    AllExercises
+    AllExercisesByCategory
   }
 }
 </script>
