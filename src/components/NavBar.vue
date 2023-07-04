@@ -16,8 +16,8 @@
             </router-link>
             <ul class="dropdown-menu">
               <li><router-link class="dropdown-item" to="/api/exercises">Alle Übungen</router-link></li>
-              <li><a class="dropdown-item" href="#">Muskelgruppen</a></li>
-              <li><a class="dropdown-item" href="#">Push und Pull</a></li>
+              <li><router-link class="dropdown-item" to="/api/exercisesGroup">Muskelgruppen</router-link></li>
+              <li><router-link class="dropdown-item" to="/api/exercisesCategory">Push und Pull</router-link></li>
             </ul>
           </li>
           <li class="nav-item">
