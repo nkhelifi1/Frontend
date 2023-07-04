@@ -96,6 +96,9 @@ td {
     padding-right: 0.2cm;
 }
 
+.table {
+    text-align: center;
+}
 .table-condensed th,
 .table-condensed td {
     padding: 0.3cm;

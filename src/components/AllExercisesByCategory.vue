@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2 class="title">Übungen sortiert nach Push und Pull</h2>
+    <h2 class="title">Push & Pull Sortierung</h2>
     <div class="card">
-      <p>Pull Übungen</p>
+      <h3 class="table-title"><strong style="color: #004aad;">Pull Übungen</strong></h3>
       <table class="table table-hover table-condensed">
         <thead>
         <tr>
@@ -27,7 +27,7 @@
       </table>
     </div>
     <div class="card">
-      <p>Push Übungen</p>
+        <h3 class="table-title" ><strong style="color: #004aad;">Push Übungen</strong></h3>
       <table class="table table-hover table-condensed">
         <thead>
         <tr>
@@ -105,6 +105,7 @@ export default {
 
 <style>
 .card {
+  text-align: left;
   margin-top: 0.5cm;
   margin-left: 0.5cm;
   margin-right: 0.5cm;
@@ -131,6 +132,9 @@ td {
   padding-right: 0.2cm;
 }
 
+.table {
+    text-align: center;
+}
 .table-condensed th,
 .table-condensed td {
   padding: 0.3cm;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="title">Meine Übungen</h2>
+    <h2 class="title">Muskelgruppen</h2>
     <div class="card">
       <p>Push Übungen</p>
       <table class="table table-hover table-condensed">
@@ -95,7 +95,9 @@ export default {
 body {
   background: radial-gradient(circle at 50% 50%, #5de0e6, #004aad);
 }
-
+.table {
+    text-align: center;
+}
 th {
   padding-left: 0.2cm;
   padding-right: 0.2cm;
