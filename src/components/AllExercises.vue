@@ -42,11 +42,13 @@ export default {
     },
     methods: {
         fetchExercises() {
+          const baseUrl = process.env.VUE_APP_BACKEND_BASE_URL
+          const endpoint = baseUrl + '/api/exercises'
             const requestOptions = {
                 method: 'GET',
                 redirect: 'follow'
             };
-            fetch("http://localhost:8080/api/exercises", requestOptions)
+            fetch(endpoint, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     this.exercises = result;
@@ -54,10 +56,12 @@ export default {
                 .catch(error => console.log("error", error));
         },
         deleteExercise(exerciseId) {
+          const baseUrl = process.env.VUE_APP_BACKEND_BASE_URL
+          const endpoint = baseUrl + '/api/exercises/' + exerciseId
             const requestOptions = {
                 method: "DELETE"
             };
-            fetch(`http://localhost:8080/api/exercises/${exerciseId}`, requestOptions)
+            fetch(endpoint, requestOptions)
                 .then(() => {
                     //entfernt die Übung aus der Zeile
                     this.exercises = this.exercises.filter(e => e.id !== exerciseId);
