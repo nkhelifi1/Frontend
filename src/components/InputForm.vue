@@ -95,11 +95,13 @@ export default {
     },
     methods: {
         load() {
+          const baseUrl = process.env.VUE_APP_BACKEND_BASE_URL
+          const endpoint = baseUrl + '/api/exercises'
             const requestOptions = {
                 method: 'GET',
                 redirect: 'follow'
             };
-            fetch('http://localhost:8080/api/exercises', requestOptions)
+            fetch(endpoint, requestOptions)
                 .then(response => response.json())
                 .then(result => result.forEach(exercise => {
                     this.exercises.push(exercise)
@@ -114,7 +116,9 @@ export default {
                 weight: this.weight,
             };
             try {
-                const response = await fetch('http://localhost:8080/api/exercises', {
+              const baseUrl = process.env.VUE_APP_BACKEND_BASE_URL
+              const endpoint = baseUrl + '/api/exercises'
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
