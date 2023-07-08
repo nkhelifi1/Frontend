@@ -29,6 +29,8 @@
     </div>
 </template>
 
+
+
 <script>
 export default {
     name: 'AllExercisesByGroup',
@@ -79,6 +81,8 @@ export default {
     },
 };
 </script>
+
+
 
 <style>
 .card {
