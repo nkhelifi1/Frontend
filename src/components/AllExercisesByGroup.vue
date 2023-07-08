@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2 class="title">Muskelgruppen</h2>
-        <div class="card" v-for="(groupExercises, muscleGroup) in groupedExercises" :key="muscleGroup">
+        <div class="card" v-for="(groupExercises, muscleGroup) in sortedGroupedExercises" :key="muscleGroup">
             <p class="muscle-group-title">{{ muscleGroup }}</p>
             <table class="table table-hover table-condensed">
                 <thead>
@@ -29,8 +29,6 @@
     </div>
 </template>
 
-
-
 <script>
 export default {
     name: 'AllExercisesByGroup',
@@ -40,7 +38,7 @@ export default {
         };
     },
     computed: {
-        groupedExercises() {
+        sortedGroupedExercises() {
             const grouped = {};
             for (const exercise of this.exercises) {
                 // eslint-disable-next-line no-prototype-builtins
@@ -49,7 +47,12 @@ export default {
                 }
                 grouped[exercise.muscleGroup].push(exercise);
             }
-            return grouped;
+            const sortedGroups = Object.keys(grouped).sort();
+            const sortedGroupedExercises = {};
+            for (const group of sortedGroups) {
+                sortedGroupedExercises[group] = grouped[group];
+            }
+            return sortedGroupedExercises;
         },
     },
     mounted() {
@@ -82,8 +85,6 @@ export default {
 };
 </script>
 
-
-
 <style>
 .card {
     margin-top: 0.5cm;
@@ -109,9 +110,11 @@ export default {
 body {
     background: radial-gradient(circle at 50% 50%, #5de0e6, #004aad);
 }
+
 .table {
     text-align: center;
 }
+
 th {
     padding-left: 0.2cm;
     padding-right: 0.2cm;
