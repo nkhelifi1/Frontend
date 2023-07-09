@@ -15,7 +15,7 @@ Eine Anwendung, bei der man aus bereits bestehenden Fitness-Übungen auswählen 
 ## **In unserer Anwendung *curl.* kann man:**
 
 
-- neue Fitnessübungen hinzufügen: _Name der Übung, Muskelgruppe, Kategorie & gewicht können individuell angepasst werden_ <img width="889" alt="neue übung" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/f1f29be9-77c5-4cf7-ac5c-559f7f1cbef8">
+- neue Fitnessübungen hinzufügen: _Name der Übung, Muskelgruppe, Kategorie & Gewicht können individuell angepasst werden_ <img width="889" alt="neue übung" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/f1f29be9-77c5-4cf7-ac5c-559f7f1cbef8">
 
 - bestehende Fitnessübungen löschen <img width="1068" alt="übung löschen" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/62154ae2-4419-4c17-ac17-76637cd4f8ac">
 
