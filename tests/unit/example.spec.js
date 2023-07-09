@@ -9,4 +9,10 @@ describe('HelloWorld.vue', () => {
     })
     expect(wrapper.text()).toMatch(msg)
   })
+
+  describe('env', () => {
+    it('should have a client id', () => {
+      expect(process.env.VUE_APP_BACKEND_BASE_URL).toBeDefined();
+    })
+  });
 })

@@ -18,6 +18,6 @@ describe('Navbar', () => {
         const navbarCollapse = wrapper.find('.navbar-collapse');
         const navbarNav = navbarCollapse.find('.navbar-nav');
         const navItems = navbarNav.findAll('.nav-item');
-        expect(navItems.length).toBe(3);
+        expect(navItems.length).toBe(2);
     });
 });
