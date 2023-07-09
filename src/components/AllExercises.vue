@@ -1,6 +1,7 @@
 <template>
     <div>
         <h2 class="title">Meine Übungen</h2>
+        <input v-model="filterCrit" class="form-control rounded, w-25" placeholder="Search a Name...">
         <div class="card">
             <table class="table table-hover table-condensed">
                 <thead>
@@ -13,7 +14,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="exercise in exercises" :key="exercise.id">
+                <tr v-for="exercise in filterFunction(filterCrit)" :key="exercise.id">
                     <td>{{ exercise.name }}</td>
                     <td>{{ exercise.muscleGroup }}</td>
                     <td>{{ exercise.category }}</td>
@@ -35,12 +36,22 @@ export default {
     data() {
         return {
             exercises: [],
+            filterCrit: ''
         };
     },
     mounted() {
         this.fetchExercises();
     },
     methods: {
+      filterFunction (criteria) {
+        const result = []
+        for (const exercise of this.exercises){
+          if( criteria.length < 1 || exercise.name.toLowerCase().includes(criteria.toLowerCase())){
+            result.push(exercise)
+          }
+        }
+        return result
+      },
         fetchExercises() {
           const baseUrl = process.env.VUE_APP_BACKEND_BASE_URL
           const endpoint = baseUrl + '/api/exercises'
