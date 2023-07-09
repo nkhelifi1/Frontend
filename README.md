@@ -19,11 +19,11 @@ Eine Anwendung, bei der man aus bereits bestehenden Fitness-Übungen auswählen 
 
 - bestehende Fitnessübungen löschen <img width="1068" alt="übung löschen" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/62154ae2-4419-4c17-ac17-76637cd4f8ac">
 
-- alle Übungen in einer Tabelle angezeigt bekommen <img width="1117" alt="alle übungen" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/450e04a9-e1d4-40e8-8d2b-5f38dc2c02b6">
+- über das Dropdown-Menü alle Übungen in einer Tabelle angezeigt bekommen <img width="1117" alt="alle übungen" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/450e04a9-e1d4-40e8-8d2b-5f38dc2c02b6">
 
-- alle Übungen nach den jeweiligen Muskelgruppen sortiert angezeigt bekommen <img width="1117" alt="Sortierung muskelgruppen" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/233f54b5-7a49-4ca8-8721-80481d0e61f7">
+- über das Dropdown-Menü alle Übungen nach den jeweiligen Muskelgruppen sortiert angezeigt bekommen <img width="1117" alt="Sortierung muskelgruppen" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/233f54b5-7a49-4ca8-8721-80481d0e61f7">
 
-- alle Übungen nach der jeweiligen Kategorie sortiert angezeigt bekommen <img width="1115" alt="kategorie sortierung" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/e15e89d3-49fc-47a2-98b8-ea81906d2f16">
+- über das Dropdown-Menü alle Übungen nach der jeweiligen Kategorie sortiert angezeigt bekommen <img width="1115" alt="kategorie sortierung" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/e15e89d3-49fc-47a2-98b8-ea81906d2f16">
 
 - alle Übungen nach Namen in der Suchleiste durchsuchen <img width="1124" alt="suchleiste" src="https://github.com/juliajule/WebTec-project-backend/assets/112177861/45fd3d9b-b53f-4b46-ba15-b44844211fcf">
 
