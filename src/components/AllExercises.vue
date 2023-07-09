@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2 class="title">Meine Übungen</h2>
-        <input v-model="filterCrit" class="form-control rounded, w-25" placeholder="Search a Name...">
+        <input v-model="filterCrit" class="form-control rounded ml-2 w-25" placeholder="Search a Name...">
         <div class="card">
             <table class="table table-hover table-condensed">
                 <thead>
@@ -118,5 +118,8 @@ td {
 .table-condensed td {
     padding: 0.3cm;
     font-size: 1em;
+}
+.ml-2 {
+    margin-left: 0.5cm !important;
 }
 </style>
