@@ -6,6 +6,9 @@
         <h4 style="text-align: left;  padding-left: 1cm;">So funktioniert´s</h4>
         <p>Mit <em>curl.</em> kannst du deine Übungen nach deinen eigenen Bedürfnissen und Präferenzen anpassen. Klicke die gewünschte Übung an, wähle die entsprechende Kategorie <em>(Push oder Pull)</em> und trage das verwendete Gewicht ein. Unser benutzerfreundliches Interface ermöglicht es dir, all deine Daten mühelos zu erfassen und im Laufe der Zeit eine detaillierte Übersicht deiner Leistungen zu erhalten.</p>
         <p>Unser Ziel ist es, dich bei deiner Fitnessreise zu unterstützen und dich zu ermutigen, das Beste aus dir herauszuholen.</p>
+      <div>
+        <button type="button" class="btn btn-primary btn-lg btn-block" @click="downloadPNG">PNG für Pull Übungen herunterladen</button>
+      </div>
 
         <h4 style="text-align: left;  padding-left: 1cm;">Was wir dir bieten</h4>
         <p>Unsere Plattform bietet dir nicht nur die Möglichkeit, deine Übungen zu tracken, sondern auch deine Fortschritte zu visualisieren. Du hast Zugang zu deinen persönlichen Fitness-Einträgen, um zu sehen, wie du dich entwickelst und wo du Verbesserungen erzielen kannst. <em>curl.</em> unterstützt dich dabei, deine Grenzen zu überwinden und deine Fitnessziele effektiv zu erreichen. Deswegen bieten wir dir auch kostenlose Trainingspläne an, mit denen du sofort starten kannst! Unter Plan <a href="../assets/PullEins.png" target="_blank" class="text-decoration-underline text-primary">Pull 1</a>, Pull 2, Push 1 und Push 2 kannst du selbst die Intensität deines Trainings bestimmen.</p>
@@ -19,7 +22,24 @@
 
 <script>
 export default {
-    name: "ExerciseProWelcome"
+    name: "ExerciseProWelcome",
+  methods: {
+    downloadPNG() {
+      // Pfad zum PNG-Bild
+      const pngFilePath = require('@/assets/PullEins.png');
+
+      // Erstellen Sie ein unsichtbares Link-Element zum Herunterladen
+      const link = document.createElement('a');
+      link.href = pngFilePath;
+      link.target = '_blank'; // Öffnet die Datei in einem neuen Tab/Fenster
+      link.download = 'pull_exercises.png'; // Optionaler Name der heruntergeladenen Datei
+
+      // Klicken Sie auf den Link, um den Download zu starten
+      link.click();
+    },
+  },
+
+
 }
 </script>
 
