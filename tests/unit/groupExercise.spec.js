@@ -2,29 +2,30 @@ import {shallowMount} from '@vue/test-utils'
 import AllExercisesByGroup from "@/components/AllExercisesByGroup.vue";
 import fetchMock from 'jest-fetch-mock';
 
-beforeEach(() => {
-    fetchMock.resetMocks();
-});
-
-beforeAll(() => {
-    fetchMock.enableMocks();
-});
-
 describe('Exercises', () => {
-    const exercises = [
-        { id: 1, name: 'Exercise 1', muscleGroup: 'Muscle 1', category: 'pull', weight: 10 },
-        { id: 2, name: 'Exercise 2', muscleGroup: 'Muscle 2', category: 'pull', weight: 20 },
-    ];
+    beforeEach(() => {
+        fetchMock.resetMocks();
+    });
 
-    it('should renders the table', async () => {
-        fetchMock.mockResponseOnce(JSON.stringify(exercises));
+    beforeAll(() => {
+        fetchMock.enableMocks();
+    });
 
-        const wrapper = shallowMount(AllExercisesByGroup);
+    it('renders table rows for each exercise', () => {
+        const exercises = [
+            // Mock exercise data
+            { id: 1, name: 'Curls', muscleGroup: 'Arm', category: 'Pull', weight: 10 },
+            { id: 2, name: 'Butterfly', muscleGroup: 'Brust', category: 'Push', weight: 20 },
+            { id: 3, name: 'Bench Press', muscleGroup: 'Brust', category: 'Push', weight: 15 },
+        ];
 
-        await wrapper.vm.$nextTick();
+        const wrapper = shallowMount(AllExercisesByGroup, {
+            data() {
+                return { exercises };
+            },
+        });
 
-        const pullTable = wrapper.find('.card table');
-        expect(pullTable.exists()).toBe(true);
-
-    })
+        const tableRows = wrapper.findAll('tbody tr');
+        expect(tableRows.length).toBe(exercises.length);
+    });
 });
